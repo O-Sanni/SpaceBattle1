@@ -118,17 +118,21 @@ function startGame()
 
 
 
+
 function cont(){
     
 response=confirm("Press ok to continue, press cancel to exit a game");
     
+  
     if(response==true){
     arrayOfAlienShips.shift();
     startGame(); 
     }
+
     else{
         console.log("you ended the game");
-        response=false;    
+        response=false; 
+        return; 
     }
 
 }
