@@ -62,7 +62,7 @@ function battleShipTurn(){
     console.log(`Alienship's hull ${arrayOfAlienShips[0].hull}`)
         
         if(battleShipHitTurn<=battleShip.accuracy){
-            arrayOfAlienShips[i].reduceHitpoints();
+            arrayOfAlienShips[0].reduceHitpoints();
                 if(arrayOfAlienShips[0].hull>0){
                    console.log("you hit alienship");
                     alienShipTurn(); 
@@ -103,7 +103,11 @@ function alienShipTurn(){
 }
 
 
-function startGame(){
+function startGame()
+{if(arrayOfAlienShips.length==0){
+    console.log("You win!")
+        return;
+    }
     console.log(arrayOfAlienShips);
     console.log(battleShip.hull);
     console.log(arrayOfAlienShips[0].hull);
@@ -115,6 +119,7 @@ function startGame(){
 
 
 function cont(){
+    
 response=confirm("Press ok to continue, press cancel to exit a game");
     
     if(response==true){
