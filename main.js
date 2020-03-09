@@ -56,73 +56,78 @@ function accuracyNumber(){
     return accuracyNum.toFixed(2);
 }
 
-// function battleShipTurn(i){
-//     battleShipHitTurn=accuracyNumber(i);  
-//     console.log("Battle Ship accurecy "+battleShip.accuracy +"Hit chance "+battleShipHitTurn);
-//     console.log(`Alienship's hull ${arrayOfAlienShips[i].hull}`)
+function battleShipTurn(){
+    battleShipHitTurn=accuracyNumber();  
+    console.log("Battle Ship accurecy "+battleShip.accuracy +"Hit chance "+battleShipHitTurn);
+    console.log(`Alienship's hull ${arrayOfAlienShips[0].hull}`)
         
-//         if(battleShipHitTurn<=battleShip.accuracy){
-//             arrayOfAlienShips[i].reduceHitpoints(i);
-//                 if(arrayOfAlienShips[i].hull>0){
-//                    console.log("you hit alienship");
-//                     alienShipTurn(i); 
-//                 }
-//         else if(arrayOfAlienShips[i].hull<=0){
-//                 console.log("alien ship was destroyed");
-//                 return;
-//                 } 
-//         }
-//         else{
-//         console.log("you miss alien ship");
-//             alienShipTurn(i);
-//     }
-//     }
+        if(battleShipHitTurn<=battleShip.accuracy){
+            arrayOfAlienShips[i].reduceHitpoints();
+                if(arrayOfAlienShips[0].hull>0){
+                   console.log("you hit alienship");
+                    alienShipTurn(); 
+                }
+        else if(arrayOfAlienShips[0].hull<=0){
+                console.log("alien ship was destroyed");
+                cont();
+                return;
+                } 
+        }
+        else{
+        console.log("you miss alien ship");
+            alienShipTurn();
+    }
+    }
 
 
-// function alienShipTurn(i){
-//         alienShipHitTurn=accuracyNumber(i);   
-//         console.log("Alien Hit accurancy :"+alienShipHitTurn + "Alien ship accurency " + arrayOfAlienShips[i].accuracy);
-//     if(alienShipHitTurn<=arrayOfAlienShips[i].accuracy)
-//     {
-//         battleShip.reduceHitpoints(arrayOfAlienShips[i].firepower);
-//             if (battleShip.hull<=0){
-//                 console.log("Battle ship is destroyed");
-//                 return;
-//             } 
-//             else{
-//                 console.log("you hit battle ship")
-//             battleShipTurn(i);  
-//             }         
-//     }
-//     else{
-//         console.log("you miss battleShip");
-//         battleShipTurn(i);
-//     }
-// }
+function alienShipTurn(){
+        alienShipHitTurn=accuracyNumber();   
+        console.log("Alien Hit accurancy :"+alienShipHitTurn + "Alien ship accurency " + arrayOfAlienShips[0].accuracy);
+    if(alienShipHitTurn<=arrayOfAlienShips[0].accuracy)
+    {
+        battleShip.reduceHitpoints(arrayOfAlienShips[0].firepower);
+            if (battleShip.hull<=0){
+                console.log("Battle ship is destroyed");
+                console.log("You loose!");
+                return;
+            } 
+            else{
+                console.log("you hit battle ship")
+            battleShipTurn();  
+            }         
+    }
+    else{
+        console.log("you miss battleShip");
+        battleShipTurn();
+    }
+}
 
-let i=0;
 
 function startGame(){
     console.log(arrayOfAlienShips);
     console.log(battleShip.hull);
     console.log(arrayOfAlienShips[0].hull);
 
-    battleShipTurn(i);
-    alienShipTurn(i);
+    battleShipTurn();
+    alienShipTurn();
+}
 
+
+
+function cont(){
 response=confirm("Press ok to continue, press cancel to exit a game");
-
+    
     if(response==true){
-    i+=1;
-    startGame();
-        
+    arrayOfAlienShips.shift();
+    startGame(); 
     }
     else{
         console.log("you ended the game");
-    
+        response=false;    
     }
 
 }
+
  
 
 
