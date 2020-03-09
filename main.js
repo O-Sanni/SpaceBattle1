@@ -57,6 +57,9 @@ function accuracyNumber(){
 }
 
 function battleShipTurn(){
+    if(response==false){
+        return;
+    }
     battleShipHitTurn=accuracyNumber();  
     console.log("Battle Ship accurecy "+battleShip.accuracy +"Hit chance "+battleShipHitTurn);
     console.log(`Alienship's hull ${arrayOfAlienShips[0].hull}`)
@@ -81,6 +84,9 @@ function battleShipTurn(){
 
 
 function alienShipTurn(){
+    if(response==false){
+        return;
+    }
         alienShipHitTurn=accuracyNumber();   
         console.log("Alien Hit accurancy :"+alienShipHitTurn + "Alien ship accurency " + arrayOfAlienShips[0].accuracy);
     if(alienShipHitTurn<=arrayOfAlienShips[0].accuracy)
@@ -88,7 +94,7 @@ function alienShipTurn(){
         battleShip.reduceHitpoints(arrayOfAlienShips[0].firepower);
             if (battleShip.hull<=0){
                 console.log("Battle ship is destroyed");
-                console.log("You loose!");
+                alert("You loose!");
                 return;
             } 
             else{
@@ -103,10 +109,11 @@ function alienShipTurn(){
 }
 
 
-function startGame()
-{if(arrayOfAlienShips.length==0){
-    console.log("You win!")
-        return;
+function startGame(){
+
+if(arrayOfAlienShips.length==0){
+    alert("You win!");
+    return;
     }
     console.log(arrayOfAlienShips);
     console.log(battleShip.hull);
@@ -118,21 +125,19 @@ function startGame()
 
 
 
-
 function cont(){
     
 response=confirm("Press ok to continue, press cancel to exit a game");
-    
+    console.log(response);
   
     if(response==true){
     arrayOfAlienShips.shift();
     startGame(); 
     }
 
-    else{
-        console.log("you ended the game");
-        response=false; 
-        return; 
+    else if (response===false){
+        alert("you ended the game");
+        return;
     }
 
 }
