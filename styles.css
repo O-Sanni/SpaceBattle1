@@ -1,7 +1,7 @@
 body{
     display: flex;
     flex-direction: column;
-    background-image: url("galaxy-3608029_1920.jpg");
+    background-image: url("/space-1548139_1920.jpg");
     background-size: cover;
     position: fixed;
     text-align: right;
@@ -11,14 +11,14 @@ button{
     width: 75px;
     height: 50px;
     color:rgb(90, 241, 228);
-    background-color: rgb(35, 6, 73);
+    background-color: rgb(138, 89, 202);
     border-radius: 35%;
     text-align: center;
     font-family: 'Revalia', cursive;
 }
 h1 {
     font-family: 'Fascinate Inline', cursive;
-    color:rgb(90, 211, 241);
+    color:rgb(120, 219, 236);
 }
 h2{
     
@@ -28,7 +28,6 @@ h2{
   
 h1,h2,button{
     margin-top: 50px;
-    margin-left: 250px;
 }
 img{
     width: 650px;
