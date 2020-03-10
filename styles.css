@@ -1,16 +1,40 @@
 body{
+    display: flex;
+    flex-direction: column;
     background-image: url("galaxy-3608029_1920.jpg");
-    background-position: center;
-    width: auto;
-    height: 1280px;
+    background-size: cover;
+    position: fixed;
     text-align: right;
+    text-align: center;
 }
 button{
-    width: 500px;
-    height: 500px;
-    color:aquamarine;
+    width: 75px;
+    height: 50px;
+    color:rgb(90, 241, 228);
+    background-color: rgb(35, 6, 73);
+    border-radius: 35%;
+    text-align: center;
+    font-family: 'Revalia', cursive;
 }
-h1, h2{
-    color:aquamarine;
+h1 {
+    font-family: 'Fascinate Inline', cursive;
+    color:rgb(90, 211, 241);
+}
+h2{
+    
+    color:rgb(183, 248, 189);
+    font-family: 'Ribeye Marrow', cursive;
 }
   
+h1,h2,button{
+    margin-top: 50px;
+    margin-left: 250px;
+}
+img{
+    width: 650px;
+    height: auto;
+}
+#main{
+    display: flex;
+    flex-direction: row;
+}
