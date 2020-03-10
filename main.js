@@ -91,9 +91,9 @@ function alienShipTurn(){
 
         return;
     }
-    
         alienShipHitTurn=accuracyNumber();   
         console.log("Alien hit accurancy :"+alienShipHitTurn + "Alien ship accuracy: " + arrayOfAlienShips[0].accuracy + " Alien ship hull: "+arrayOfAlienShips[0].hull);
+    
     if(alienShipHitTurn<=arrayOfAlienShips[0].accuracy)
     {
         battleShip.reduceHitpoints(arrayOfAlienShips[0].firepower);
