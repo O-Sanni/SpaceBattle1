@@ -8,9 +8,9 @@ body{
 button{
     width: 500px;
     height: 500px;
-    color: rgb(248, 11, 11)
+    color:aquamarine;
 }
-h1{
-    color: aqua;
+h1, h2{
+    color:aquamarine;
 }
   
