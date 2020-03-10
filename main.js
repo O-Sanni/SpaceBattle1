@@ -64,7 +64,7 @@ function battleShipTurn(){
     }
   
     battleShipHitTurn=accuracyNumber();  
-    console.log("Battle Ship accuracy "+battleShip.accuracy +" hit chance "+battleShipHitTurn );
+    console.log("Battle Ship accuracy "+battleShip.accuracy +", hit chance "+battleShipHitTurn + " and hull is "+battleShip.hull);
     console.log(`Current alienship's hull is ${arrayOfAlienShips[0].hull} and firepower is ${arrayOfAlienShips[0].firepower}`)
         
         if(battleShipHitTurn<=battleShip.accuracy){
@@ -93,7 +93,7 @@ function alienShipTurn(){
     }
     
         alienShipHitTurn=accuracyNumber();   
-        console.log("Alien Hit accurancy :"+alienShipHitTurn + "Alien ship accurency " + arrayOfAlienShips[0].accuracy);
+        console.log("Alien hit accurancy :"+alienShipHitTurn + "Alien ship accuracy: " + arrayOfAlienShips[0].accuracy + " Alien ship hull: "+arrayOfAlienShips[0].hull);
     if(alienShipHitTurn<=arrayOfAlienShips[0].accuracy)
     {
         battleShip.reduceHitpoints(arrayOfAlienShips[0].firepower);
@@ -125,7 +125,7 @@ function startGame(){
 }
 
 function refresh(){
-    location.reload();
+    location.reload()
 }
 
 function cont(){
