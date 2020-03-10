@@ -1,5 +1,4 @@
-
-
+console.log("WELCOME TO SPACE BATTLE")
 class Aliens{
     constructor(hull, firepower,accuracy){
         this.hull=hull;
@@ -26,9 +25,9 @@ class USSSchwarzeneggerShip{
 
 }
 
-function getRandomValue(minVal, maxVal){
+function getRandomValue(minVal, maxVal){ //returns random value for alien ships
     if(minVal>1 && maxVal > 1){
-    return Math.floor(Math.random()*(maxVal-minVal+1)+minVal);
+        return Math.floor(Math.random()*(maxVal-minVal+1)+minVal);
  
 }
     else{
@@ -46,12 +45,15 @@ let sixthAlienShip=new Aliens(getRandomValue(3,6),getRandomValue(2,4),getRandomV
 let battleShip=new USSSchwarzeneggerShip();
 
 let arrayOfAlienShips=[firstAlienShip,secondAlienShip,thirdAlienShip,fourthAlienShip,fifthAlienShip,sixthAlienShip];
-console.log(arrayOfAlienShips);
+console.log("There are 6 alien ships with the following properties:")
+    for(let i=0; i<arrayOfAlienShips.length;  i++){
+        console.log(`%cAlien ship ${i+1} has the following properties: hull: ${arrayOfAlienShips[i].hull}, firepower:${arrayOfAlienShips[i].firepower}, accuracy: ${arrayOfAlienShips[i].accuracy}`,"color:#5B11CD");
+    }
 let response;
 let battleShipHitTurn;
 let alienShipHitTurn;
 
-function accuracyNumber(){
+function accuracyNumber(){ //return the random value for accuracy for alien ships and battle ship
     let accuracyNum=Math.random();
     return accuracyNum.toFixed(2);
 }
@@ -61,23 +63,23 @@ function battleShipTurn(){
         return;
     }
     battleShipHitTurn=accuracyNumber();  
-    console.log("Battle Ship accurecy "+battleShip.accuracy +"Hit chance "+battleShipHitTurn);
-    console.log(`Alienship's hull ${arrayOfAlienShips[0].hull}`)
+    console.log("Battle Ship accuracy "+battleShip.accuracy +" hit chance "+battleShipHitTurn );
+    console.log(`Current alienship's hull is ${arrayOfAlienShips[0].hull} and firepower is ${arrayOfAlienShips[0].firepower}`)
         
         if(battleShipHitTurn<=battleShip.accuracy){
             arrayOfAlienShips[0].reduceHitpoints();
                 if(arrayOfAlienShips[0].hull>0){
-                   console.log("you hit alienship");
+                   console.log("%c You hit alienship","color:#11B3CD");
                     alienShipTurn(); 
                 }
         else if(arrayOfAlienShips[0].hull<=0){
-                console.log("alien ship was destroyed");
+                console.log("%c Alien ship was destroyed","color:#FC512D");
                 cont();
                 return;
                 } 
         }
         else{
-        console.log("you miss alien ship");
+        console.log("%c You miss alien ship","color:#17C111");
             alienShipTurn();
     }
     }
@@ -93,31 +95,27 @@ function alienShipTurn(){
     {
         battleShip.reduceHitpoints(arrayOfAlienShips[0].firepower);
             if (battleShip.hull<=0){
-                console.log("Battle ship is destroyed");
+                console.log("%c Battle ship is destroyed","color:#FC512D");
                 alert("You loose!");
                 return;
             } 
             else{
-                console.log("you hit battle ship")
+                console.log("%c You hit battle ship","color:#11B3CD")
             battleShipTurn();  
             }         
     }
     else{
-        console.log("you miss battleShip");
+        console.log("%c You miss battleship","color:#17C111");
         battleShipTurn();
     }
 }
 
-
 function startGame(){
 
-if(arrayOfAlienShips.length==0){
-    alert("You win!");
-    return;
+    if(arrayOfAlienShips.length==0){
+        alert("You win!");
+        return;
     }
-    console.log(arrayOfAlienShips);
-    console.log(battleShip.hull);
-    console.log(arrayOfAlienShips[0].hull);
 
     battleShipTurn();
     alienShipTurn();
@@ -128,7 +126,6 @@ if(arrayOfAlienShips.length==0){
 function cont(){
     
 response=confirm("Press ok to continue, press cancel to exit a game");
-    console.log(response);
   
     if(response==true){
     arrayOfAlienShips.shift();
@@ -142,8 +139,7 @@ response=confirm("Press ok to continue, press cancel to exit a game");
 
 }
 
- 
-
+startGame();
 
 
 
